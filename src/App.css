@@ -1,0 +1,91 @@
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusables
+        3.2 Other
+    4. Areas
+        4.1 Header
+        4.2 Introduction
+        etc.
+    5. Media Queries
+////////////////////////*/
+
+/*1. Global Styles*/
+* {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+}
+
+
+
+
+/*Typography*/
+
+h1 {
+    margin:20px 0;
+}
+
+.fruit-section p {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+/*layout */
+
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1200px;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    padding: 20px;
+    align-items: center;
+}
+
+.fruit-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 800px;
+    border: 3px solid red;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 3em;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin: 1em;
+    font-size: 0.5em;
+}
+
+
+.fruit-value {
+    font-weight: 300;
+    font-size: 3rem;
+}
+
+/* AREAS*/
+
+/* Header*/
+
+img {
+    width: 100%;
+}
+
+/*FORM SECTION*/
