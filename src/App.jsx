@@ -12,162 +12,180 @@ function App() {
     const [firstnameValue, setFirstnameValue] = React.useState('');
     const [lastnameValue, setLastnameValue] = React.useState('');
 
-
+    function handleReset() {
+        setAardbeiValue(0);
+        setBananenValue(0);
+        setAppelsValue(0);
+        setKiwisValue(0);
+    }
 
     return (
         <>
-        <div className="outer-container">
-            <div className="inner-container">
-                <header>
-                    <img src={logo} alt="logo van het bedrijf"/>
-                </header>
+            <div className="outer-container">
+                <div className="inner-container">
+                    <header>
+                        <img src={logo} alt="logo van het bedrijf"/>
+                    </header>
 
-                <main>
-                    <section>
-                        <div className="fruit-section">
-                            <p>aardbeien
+                    <main>
+                        <section>
+
+                            <div className="fruit-section">
+                                <p>aardbeien
+
+                                    <button
+                                        type="button"
+                                        name="aardbei"
+                                        value={aardbeiValue}
+                                        onClick={() => {
+                                            setAardbeiValue(substract(aardbeiValue))
+                                        }}
+                                    >
+                                        -
+                                    </button>
+
+                                    <span className="fruit-value">{aardbeiValue}</span>
+
+                                    <button
+                                        type="button"
+                                        name="aardbei"
+                                        value={aardbeiValue}
+                                        onClick={() => {
+                                            setAardbeiValue(adding(aardbeiValue))
+                                        }}
+                                    >
+                                        +
+                                    </button>
+                                </p>
+                            </div>
+
+
+                            <div className="fruit-section">
+                                <p>Bananen
+                                    <button
+                                        type="button"
+                                        name="banaan"
+                                        value={bananenValue}
+                                        onClick={() => {
+                                            setBananenValue(substract(bananenValue))
+                                        }}
+                                    >
+                                        -
+                                    </button>
+
+                                    <span className="fruit-value">{bananenValue}</span>
+
+                                    <button
+                                        type="button"
+                                        name="banaan"
+                                        value={bananenValue}
+                                        onClick={() => {
+                                            setBananenValue(adding(bananenValue))
+                                        }}
+                                    >
+                                        +
+                                    </button>
+                                </p>
+                            </div>
+
+                            <div className="fruit-section">
+                                <p>Appels
+                                    <button
+                                        type="button"
+                                        name="appels"
+                                        value={appelsValue}
+                                        onClick={() => {
+                                            setAppelsValue(substract(appelsValue))
+                                        }}
+                                    >
+                                        -
+                                    </button>
+
+                                    <span className="fruit-value">{appelsValue}</span>
+
+                                    <button
+                                        type="button"
+                                        name="appels"
+                                        value={appelsValue}
+                                        onClick={() => {
+                                            setAppelsValue(adding(appelsValue))
+                                        }}
+                                    >
+                                        +
+                                    </button>
+                                </p>
+                            </div>
+
+                            <div className="fruit-section">
+                                <p>Kiwi´s
+                                    <button
+                                        type="button"
+                                        name="kiwis"
+                                        value={kiwisValue}
+                                        onClick={() => {
+                                            setKiwisValue(substract(kiwisValue))
+                                        }}
+                                    >
+                                        -
+                                    </button>
+
+                                    <span className="fruit-value">{kiwisValue}</span>
+
+                                    <button
+                                        type="button"
+                                        name="kiwis"
+                                        value={kiwisValue}
+                                        onClick={() => {
+                                            setKiwisValue(adding(kiwisValue))
+                                        }}
+                                    >
+                                        +
+                                    </button>
+                                </p>
+                            </div>
 
                                 <button
                                     type="button"
-                                    name="aardbei"
-                                    value={aardbeiValue}
-                                    onClick={() => {
-                                        setAardbeiValue(substract(aardbeiValue))
-                                    }}
+                                    className="reset-button"
+                                    onClick={handleReset}
                                 >
-                                    -
+                                    reset
                                 </button>
 
-                                <span className="fruit-value">{aardbeiValue}</span>
+                        </section>
 
-                                <button
-                                    type="button"
-                                    name="aardbei"
-                                    value={aardbeiValue}
-                                    onClick={() => {
-                                        setAardbeiValue(adding(aardbeiValue))
-                                    }}
-                                >
-                                    +
-                                </button>
-                            </p>
-                        </div>
+                        <section>
+                            <form>
+                                <label htmlFor="firstname">Voornaam
+                                    <input
+                                        type="text"
+                                        id="firstname"
+                                        name="firstname"
+                                        value={firstnameValue}
+                                        onChange={(e) => {
+                                            setFirstnameValue(e.target.value)
+                                        }}
+                                    />
+                                </label>
 
 
-                        <div className="fruit-section">
-                            <p>Bananen
-                                <button
-                                    type="button"
-                                    name="banaan"
-                                    value={bananenValue}
-                                    onClick={() => {
-                                        setBananenValue(substract(bananenValue))
-                                    }}
-                                >
-                                    -
-                                </button>
+                                <label htmlFor="lastname">Achternaam
+                                    <input
+                                        type="text"
+                                        id="lastname"
+                                        name="lastname"
+                                        value={lastnameValue}
+                                        onChange={(e) => {
+                                            setLastnameValue(e.target.value)
+                                        }}
+                                    />
+                                </label>
 
-                                <span className="fruit-value">{bananenValue}</span>
-
-                                <button
-                                    type="button"
-                                    name="banaan"
-                                    value={bananenValue}
-                                    onClick={() => {
-                                        setBananenValue(adding(bananenValue))
-                                    }}
-                                >
-                                    +
-                                </button>
-                            </p>
-                        </div>
-
-                        <div className="fruit-section">
-                            <p>Appels
-                                <button
-                                    type="button"
-                                    name="appels"
-                                    value={appelsValue}
-                                    onClick={() => {
-                                        setAppelsValue(substract(appelsValue))
-                                    }}
-                                >
-                                    -
-                                </button>
-
-                                <span className="fruit-value">{appelsValue}</span>
-
-                                <button
-                                    type="button"
-                                    name="appels"
-                                    value={appelsValue}
-                                    onClick={() => {
-                                        setAppelsValue(adding(appelsValue))
-                                    }}
-                                >
-                                    +
-                                </button>
-                            </p>
-                        </div>
-
-                        <div className="fruit-section">
-                            <p>Kiwi´s
-                                <button
-                                    type="button"
-                                    name="kiwis"
-                                    value={kiwisValue}
-                                    onClick={() => {
-                                        setKiwisValue(substract(kiwisValue))
-                                    }}
-                                >
-                                    -
-                                </button>
-
-                                <span className="fruit-value">{kiwisValue}</span>
-
-                                <button
-                                    type="button"
-                                    name="kiwis"
-                                    value={kiwisValue}
-                                    onClick={() => {
-                                        setKiwisValue(adding(kiwisValue))
-                                    }}
-                                >
-                                    +
-                                </button>
-                            </p>
-                        </div>
-                    </section>
-
-                    <section>
-                        <form>
-                            <label htmlFor="firstname">Voornaam </label>
-                            <input
-                                type="text"
-                                id="firstname"
-                                name="firstname"
-                                value={firstnameValue}
-                                onChange={(e) => {
-                                    setFirstnameValue(e.target.value)
-                                }}
-                            />
-
-                            <label htmlFor="lastname">Achternaam </label>
-                            <input
-                                type="text"
-                                id="lastname"
-                                name="lastname"
-                                value={lastnameValue}
-                                onChange={(e) => {
-                                    setLastnameValue(e.target.value)
-                                }}
-                            />
-
-                        </form>
-                    </section>
-                </main>
+                            </form>
+                        </section>
+                    </main>
+                </div>
             </div>
-        </div>
 
         </>
     )
