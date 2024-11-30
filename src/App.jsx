@@ -11,6 +11,9 @@ function App() {
     const [kiwisValue, setKiwisValue] = React.useState(0);
     const [firstnameValue, setFirstnameValue] = React.useState('');
     const [lastnameValue, setLastnameValue] = React.useState('');
+    const [ageValue, setAgeValue] = React.useState(0);
+    const [zipCodeValue, setZipCodeValue] = React.useState();
+    const [partOfDayValue, setPartOfDayValue] = React.useState('');
 
     function handleReset() {
         setAardbeiValue(0);
@@ -156,10 +159,10 @@ function App() {
 
                         <section>
                             <form>
-                                <label htmlFor="firstname">Voornaam
+                                <label htmlFor="firstname-field">Voornaam
                                     <input
                                         type="text"
-                                        id="firstname"
+                                        id="firstname-field"
                                         name="firstname"
                                         value={firstnameValue}
                                         onChange={(e) => {
@@ -168,11 +171,10 @@ function App() {
                                     />
                                 </label>
 
-
-                                <label htmlFor="lastname">Achternaam
+                                <label htmlFor="lastname-field">Achternaam
                                     <input
                                         type="text"
-                                        id="lastname"
+                                        id="lastname-field"
                                         name="lastname"
                                         value={lastnameValue}
                                         onChange={(e) => {
@@ -180,6 +182,84 @@ function App() {
                                         }}
                                     />
                                 </label>
+
+                                <label htmlFor="age-field">Leeftijd
+                                    <input
+                                        type="text"
+                                        id="age-field"
+                                        name="age"
+                                        value={ageValue}
+                                        onChange={(e) => {
+                                            setAgeValue(e.target.value)
+                                        }}
+                                    />
+                                </label>
+
+                                <label htmlFor="zipcode-field">Postcode
+                                    <input
+                                        type="text"
+                                        id="zipcode-field"
+                                        name="zipcode"
+                                        value={zipCodeValue}
+                                        onChange={(e) => {
+                                            setZipCodeValue(e.target.value)
+                                        }}
+                                    />
+                                </label>
+
+                                <label htmlFor="deliver-frequency">Bezorgfrequentie</label>
+                                <select
+                                    id="deliver-frequency"
+                                    name="bezorgfrequentie"
+                                >
+                                    <option value="iedere week">Iedere week</option>
+                                    <option value="om de week">Om de week</option>
+                                    <option value="iedere maand">Iedere maand</option>
+                                </select>
+
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="partOfDay"
+                                        value="overdag"
+                                        checked={partOfDayValue === "overdag"}
+                                        />
+                                    Overdag
+                                </label>
+
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="partOfDay"
+                                        value="'s Avonds"
+                                        checked={partOfDayValue === "'s Avonds"}
+                                        />
+                                    's Avonds
+                                </label>
+
+                                <label htmlfor="remark-field">Opmerkingen</label>
+                                <textarea
+                                id= "remark-field"
+                                name= "opmerkingen"
+                                rows= "5"
+                                cols= "50"
+                                ></textarea>
+
+                                <label htmlFor="termsAndConditions">
+                                    <input
+                                        type="checkbox"
+                                        id="termsAndConditions"
+                                        name="terms-and-conditions"
+                                        />
+                                    Ik ga akkoord met de algemene voorwaarden
+                                </label>
+
+                                <button type="submit">
+                                    Verzenden
+                                </button>
+
+
+
 
                             </form>
                         </section>
