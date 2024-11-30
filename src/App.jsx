@@ -12,8 +12,11 @@ function App() {
     const [firstnameValue, setFirstnameValue] = React.useState('');
     const [lastnameValue, setLastnameValue] = React.useState('');
     const [ageValue, setAgeValue] = React.useState(0);
-    const [zipCodeValue, setZipCodeValue] = React.useState();
-    const [partOfDayValue, setPartOfDayValue] = React.useState('');
+    const [zipCodeValue, setZipCodeValue] = React.useState('');
+    const [deliverValue, setDeliverValue] = React.useState('');
+    const [partOfDayValue, togglePartOfDayValue] = React.useState('');
+    const [remarkValue, setRemarkValue] = React.useState('');
+    const [termsConditionsValue, toggleTermsConditionsValue] = React.useState(false);
 
     function handleReset() {
         setAardbeiValue(0);
@@ -21,6 +24,13 @@ function App() {
         setAppelsValue(0);
         setKiwisValue(0);
     }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(aardbeiValue, bananenValue, appelsValue, kiwisValue, firstnameValue, lastnameValue, ageValue, zipCodeValue, deliverValue, partOfDayValue,remarkValue);
+        console.log(termsConditionsValue ? "ik ben akkoord met de voorwaarden" : " ik ben niet akkoord met de voorwaarden");
+    }
+
 
     return (
         <>
@@ -31,121 +41,122 @@ function App() {
                     </header>
 
                     <main>
-                        <section>
+                        <form onSubmit={handleSubmit}>
+                            <section>
 
-                            <div className="fruit-section">
-                                <p>aardbeien
+                                <div className="fruit-section">
+                                    <p>aardbeien
 
-                                    <button
-                                        type="button"
-                                        name="aardbei"
-                                        value={aardbeiValue}
-                                        onClick={() => {
-                                            setAardbeiValue(substract(aardbeiValue))
-                                        }}
-                                    >
-                                        -
-                                    </button>
+                                        <button
+                                            type="button"
+                                            name="aardbei"
+                                            value={aardbeiValue}
+                                            onClick={() => {
+                                                setAardbeiValue(substract(aardbeiValue))
+                                            }}
+                                        >
+                                            -
+                                        </button>
 
-                                    <span className="fruit-value">{aardbeiValue}</span>
+                                        <span className="fruit-value">{aardbeiValue}</span>
 
-                                    <button
-                                        type="button"
-                                        name="aardbei"
-                                        value={aardbeiValue}
-                                        onClick={() => {
-                                            setAardbeiValue(adding(aardbeiValue))
-                                        }}
-                                    >
-                                        +
-                                    </button>
-                                </p>
-                            </div>
+                                        <button
+                                            type="button"
+                                            name="aardbei"
+                                            value={aardbeiValue}
+                                            onClick={() => {
+                                                setAardbeiValue(adding(aardbeiValue))
+                                            }}
+                                        >
+                                            +
+                                        </button>
+                                    </p>
+                                </div>
 
 
-                            <div className="fruit-section">
-                                <p>Bananen
-                                    <button
-                                        type="button"
-                                        name="banaan"
-                                        value={bananenValue}
-                                        onClick={() => {
-                                            setBananenValue(substract(bananenValue))
-                                        }}
-                                    >
-                                        -
-                                    </button>
+                                <div className="fruit-section">
+                                    <p>Bananen
+                                        <button
+                                            type="button"
+                                            name="banaan"
+                                            value={bananenValue}
+                                            onClick={() => {
+                                                setBananenValue(substract(bananenValue))
+                                            }}
+                                        >
+                                            -
+                                        </button>
 
-                                    <span className="fruit-value">{bananenValue}</span>
+                                        <span className="fruit-value">{bananenValue}</span>
 
-                                    <button
-                                        type="button"
-                                        name="banaan"
-                                        value={bananenValue}
-                                        onClick={() => {
-                                            setBananenValue(adding(bananenValue))
-                                        }}
-                                    >
-                                        +
-                                    </button>
-                                </p>
-                            </div>
+                                        <button
+                                            type="button"
+                                            name="banaan"
+                                            value={bananenValue}
+                                            onClick={() => {
+                                                setBananenValue(adding(bananenValue))
+                                            }}
+                                        >
+                                            +
+                                        </button>
+                                    </p>
+                                </div>
 
-                            <div className="fruit-section">
-                                <p>Appels
-                                    <button
-                                        type="button"
-                                        name="appels"
-                                        value={appelsValue}
-                                        onClick={() => {
-                                            setAppelsValue(substract(appelsValue))
-                                        }}
-                                    >
-                                        -
-                                    </button>
+                                <div className="fruit-section">
+                                    <p>Appels
+                                        <button
+                                            type="button"
+                                            name="appels"
+                                            value={appelsValue}
+                                            onClick={() => {
+                                                setAppelsValue(substract(appelsValue))
+                                            }}
+                                        >
+                                            -
+                                        </button>
 
-                                    <span className="fruit-value">{appelsValue}</span>
+                                        <span className="fruit-value">{appelsValue}</span>
 
-                                    <button
-                                        type="button"
-                                        name="appels"
-                                        value={appelsValue}
-                                        onClick={() => {
-                                            setAppelsValue(adding(appelsValue))
-                                        }}
-                                    >
-                                        +
-                                    </button>
-                                </p>
-                            </div>
+                                        <button
+                                            type="button"
+                                            name="appels"
+                                            value={appelsValue}
+                                            onClick={() => {
+                                                setAppelsValue(adding(appelsValue))
+                                            }}
+                                        >
+                                            +
+                                        </button>
+                                    </p>
+                                </div>
 
-                            <div className="fruit-section">
-                                <p>Kiwi´s
-                                    <button
-                                        type="button"
-                                        name="kiwis"
-                                        value={kiwisValue}
-                                        onClick={() => {
-                                            setKiwisValue(substract(kiwisValue))
-                                        }}
-                                    >
-                                        -
-                                    </button>
+                                <div className="fruit-section">
+                                    <p>Kiwi´s
+                                        <button
+                                            type="button"
+                                            name="kiwis"
+                                            value={kiwisValue}
+                                            onClick={() => {
+                                                setKiwisValue(substract(kiwisValue))
+                                            }}
+                                        >
+                                            -
+                                        </button>
 
-                                    <span className="fruit-value">{kiwisValue}</span>
+                                        <span className="fruit-value">{kiwisValue}</span>
 
-                                    <button
-                                        type="button"
-                                        name="kiwis"
-                                        value={kiwisValue}
-                                        onClick={() => {
-                                            setKiwisValue(adding(kiwisValue))
-                                        }}
-                                    >
-                                        +
-                                    </button>
-                                </p>
-                            </div>
+                                        <button
+                                            type="button"
+                                            name="kiwis"
+                                            value={kiwisValue}
+                                            onClick={() => {
+                                                setKiwisValue(adding(kiwisValue))
+                                            }}
+                                        >
+                                            +
+                                        </button>
+                                    </p>
+                                </div>
 
                                 <button
                                     type="button"
@@ -155,10 +166,10 @@ function App() {
                                     reset
                                 </button>
 
-                        </section>
+                            </section>
 
-                        <section>
-                            <form>
+                            <section>
+
                                 <label htmlFor="firstname-field">Voornaam
                                     <input
                                         type="text"
@@ -211,9 +222,11 @@ function App() {
                                 <select
                                     id="deliver-frequency"
                                     name="bezorgfrequentie"
+                                    value={deliverValue}
+                                    onChange={(e) => setDeliverValue(e.target.value)}
                                 >
-                                    <option value="iedere week">Iedere week</option>
-                                    <option value="om de week">Om de week</option>
+                                    <option value="Iedere week">Iedere week</option>
+                                    <option value="Om de week">Om de week</option>
                                     <option value="iedere maand">Iedere maand</option>
                                 </select>
 
@@ -223,7 +236,8 @@ function App() {
                                         name="partOfDay"
                                         value="overdag"
                                         checked={partOfDayValue === "overdag"}
-                                        />
+                                        onChange={(e) => togglePartOfDayValue(e.target.value)}
+                                    />
                                     Overdag
                                 </label>
 
@@ -233,16 +247,19 @@ function App() {
                                         name="partOfDay"
                                         value="'s Avonds"
                                         checked={partOfDayValue === "'s Avonds"}
-                                        />
-                                    's Avonds
+                                        onChange={(e) => togglePartOfDayValue(e.target.value)}
+                                    />
+                                    ´s Avonds
                                 </label>
 
-                                <label htmlfor="remark-field">Opmerkingen</label>
+                                <label htmlFor="remark-field">Opmerkingen</label>
                                 <textarea
-                                id= "remark-field"
-                                name= "opmerkingen"
-                                rows= "5"
-                                cols= "50"
+                                    id="remark-field"
+                                    name="opmerkingen"
+                                    value={remarkValue}
+                                    onChange={(e) => setRemarkValue(e.target.value)}
+                                    rows="5"
+                                    cols="50"
                                 ></textarea>
 
                                 <label htmlFor="termsAndConditions">
@@ -250,21 +267,19 @@ function App() {
                                         type="checkbox"
                                         id="termsAndConditions"
                                         name="terms-and-conditions"
-                                        />
+                                        checked={termsConditionsValue}
+                                        onChange={() => toggleTermsConditionsValue(!termsConditionsValue)}
+                                    />
                                     Ik ga akkoord met de algemene voorwaarden
                                 </label>
 
                                 <button type="submit">
                                     Verzenden
                                 </button>
-
-
-
-
-                            </form>
-                        </section>
-                    </main>
-                </div>
+                            </section>
+                        </form>
+                </main>
+            </div>
             </div>
 
         </>
