@@ -30,10 +30,6 @@ h1 {
     margin: 20px 0;
 }
 
-.fruit-section p {
-    font-size: 4rem;
-    font-weight: 600;
-}
 
 
 /*layout */
@@ -69,31 +65,6 @@ img {
 
 
 /*FRUIT SECTION COUNTING*/
-
-.fruit-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 800px;
-    border: 3px solid red;
-    border-radius: 10px;
-    padding: 25px;
-    margin-bottom: 3em;
-}
-
-button {
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-    margin: 1em;
-    font-size: 0.5em;
-}
-
-
-.fruit-value {
-    font-weight: 300;
-    font-size: 3rem;
-}
 
 
 

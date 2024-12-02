@@ -4,6 +4,7 @@ import substract from './helpers/countingsubstract.js';
 import logo from './assets/screenshot-logo.png';
 import React from 'react';
 import Buttongeneral from './componenten/Buttongeneral.jsx'
+import Countbuttons from './componenten/Fruitcounter.jsx'
 
 function App() {
     const [aardbeiValue, setAardbeiValue] = React.useState(0);
@@ -69,119 +70,36 @@ function App() {
                     <main>
                         <form onSubmit={handleSubmit}>
                             <section>
-                                <div className="fruit-section">
-                                    <p>aardbeien
 
-                                        <button
-                                            type="button"
-                                            name="aardbei"
-                                            value={aardbeiValue}
-                                            onClick={() => {
-                                                setAardbeiValue(substract(aardbeiValue))
-                                            }}
-                                        >
-                                            -
-                                        </button>
+                                <Countbuttons
+                                    fruitName="aardbeien"
+                                    value={aardbeiValue}
+                                    substractFruitCount={setAardbeiValue}
+                                    addFruitCount={setAardbeiValue}
+                                />
 
-                                        <span className="fruit-value">{aardbeiValue}</span>
+                                <Countbuttons
+                                    fruitName="bananen"
+                                    value={bananenValue}
+                                    substractFruitCount={setBananenValue}
+                                    addFruitCount={setBananenValue}
+                                />
 
-                                        <button
-                                            type="button"
-                                            name="aardbei"
-                                            value={aardbeiValue}
-                                            onClick={() => {
-                                                setAardbeiValue(adding(aardbeiValue))
-                                            }}
-                                        >
-                                            +
-                                        </button>
-                                    </p>
-                                </div>
+                                <Countbuttons
+                                    fruitName="appels"
+                                    value={appelsValue}
+                                    substractFruitCount={setAppelsValue}
+                                    addFruitCount={setAppelsValue}
+                                />
 
 
-                                <div className="fruit-section">
-                                    <p>Bananen
-                                        <button
-                                            type="button"
-                                            name="banaan"
-                                            value={bananenValue}
-                                            onClick={() => {
-                                                setBananenValue(substract(bananenValue))
-                                            }}
-                                        >
-                                            -
-                                        </button>
+                                <Countbuttons
+                                    fruitName="kiwis"
+                                    value={kiwisValue}
+                                    substractFruitCount={setKiwisValue}
+                                    addFruitCount={setKiwisValue}
+                                />
 
-                                        <span className="fruit-value">{bananenValue}</span>
-
-                                        <button
-                                            type="button"
-                                            name="banaan"
-                                            value={bananenValue}
-                                            onClick={() => {
-                                                setBananenValue(adding(bananenValue))
-                                            }}
-                                        >
-                                            +
-                                        </button>
-                                    </p>
-                                </div>
-
-                                <div className="fruit-section">
-                                    <p>Appels
-                                        <button
-                                            type="button"
-                                            name="appels"
-                                            value={appelsValue}
-                                            onClick={() => {
-                                                setAppelsValue(substract(appelsValue))
-                                            }}
-                                        >
-                                            -
-                                        </button>
-
-                                        <span className="fruit-value">{appelsValue}</span>
-
-                                        <button
-                                            type="button"
-                                            name="appels"
-                                            value={appelsValue}
-                                            onClick={() => {
-                                                setAppelsValue(adding(appelsValue))
-                                            }}
-                                        >
-                                            +
-                                        </button>
-                                    </p>
-                                </div>
-
-                                <div className="fruit-section">
-                                    <p>Kiwi´s
-                                        <button
-                                            type="button"
-                                            name="kiwis"
-                                            value={kiwisValue}
-                                            onClick={() => {
-                                                setKiwisValue(substract(kiwisValue))
-                                            }}
-                                        >
-                                            -
-                                        </button>
-
-                                        <span className="fruit-value">{kiwisValue}</span>
-
-                                        <button
-                                            type="button"
-                                            name="kiwis"
-                                            value={kiwisValue}
-                                            onClick={() => {
-                                                setKiwisValue(adding(kiwisValue))
-                                            }}
-                                        >
-                                            +
-                                        </button>
-                                    </p>
-                                </div>
 
                                 <Buttongeneral
                                     type="button"
