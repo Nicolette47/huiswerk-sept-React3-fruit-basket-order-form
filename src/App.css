@@ -1,0 +1,116 @@
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusables
+        3.2 Other
+    4. Areas
+        4.1 Header
+        4.2 Introduction
+        etc.
+    5. Media Queries
+////////////////////////*/
+
+/*1. Global Styles*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+}
+
+
+/*Typography*/
+
+h1 {
+    margin: 20px 0;
+}
+
+
+
+/*layout */
+
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1200px;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    padding: 20px;
+    align-items: center;
+}
+
+section {
+    margin: 20px 0;
+}
+
+
+/* AREAS*/
+
+/* HEADER*/
+
+img {
+    width: 100%;
+}
+
+
+/*FRUIT SECTION COUNTING*/
+
+
+
+/*FORM SECTION*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+
+}
+
+label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+input {
+    flex-grow: 1;
+    height: 2.5em;
+    align-items: flex-start;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.deliver-section {
+    margin-top: 2em;
+}
+
+.deliver-radiobutton {
+    flex-grow: 1;
+    height: 2.5em;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+
+}
+
+
+.terms-conditions-section {
+    flex: 0;
+}
+
+
