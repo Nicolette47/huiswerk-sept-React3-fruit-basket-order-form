@@ -3,20 +3,21 @@ import adding from './helpers/countingadd.js';
 import substract from './helpers/countingsubstract.js';
 import logo from './assets/screenshot-logo.png';
 import React from 'react';
+import Buttongeneral from './componenten/Buttongeneral.jsx'
 
 function App() {
     const [aardbeiValue, setAardbeiValue] = React.useState(0);
     const [bananenValue, setBananenValue] = React.useState(0);
     const [appelsValue, setAppelsValue] = React.useState(0);
     const [kiwisValue, setKiwisValue] = React.useState(0);
-    const [firstnameValue, setFirstnameValue] = React.useState('');
-    const [lastnameValue, setLastnameValue] = React.useState('');
-    const [ageValue, setAgeValue] = React.useState(0);
-    const [zipCodeValue, setZipCodeValue] = React.useState('');
-    const [deliverValue, setDeliverValue] = React.useState('');
-    const [partOfDayValue, togglePartOfDayValue] = React.useState('');
-    const [remarkValue, setRemarkValue] = React.useState('');
-    const [termsConditionsValue, toggleTermsConditionsValue] = React.useState(false);
+    //const [firstnameValue, setFirstnameValue] = React.useState('');
+    //const [lastnameValue, setLastnameValue] = React.useState('');
+    //const [ageValue, setAgeValue] = React.useState(0);
+    //const [zipCodeValue, setZipCodeValue] = React.useState('');
+    //const [deliverValue, setDeliverValue] = React.useState('');
+    //const [partOfDayValue, togglePartOfDayValue] = React.useState('');
+    //const [remarkValue, setRemarkValue] = React.useState('');
+    //const [termsConditionsValue, toggleTermsConditionsValue] = React.useState(false);
 
     function handleReset() {
         setAardbeiValue(0);
@@ -27,8 +28,33 @@ function App() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(aardbeiValue, bananenValue, appelsValue, kiwisValue, firstnameValue, lastnameValue, ageValue, zipCodeValue, deliverValue, partOfDayValue,remarkValue);
-        console.log(termsConditionsValue ? "ik ben akkoord met de voorwaarden" : " ik ben niet akkoord met de voorwaarden");
+        console.log(aardbeiValue, bananenValue, appelsValue, kiwisValue);
+        console.log({
+            ...formState,
+            termsAndConditions: formState.termsAndConditions
+                ? 'Ik ga akkoord met de voorwaarden'
+                : 'Ik ga niet akkoord met de voorwaarden',
+        });
+    }
+
+    const [formState, setFormState] = React.useState({
+        firstname: '',
+        lastname: '',
+        age: '',
+        postcode: '',
+        bezorgfrequentie: '',
+        dagdeelbezorgen: '',
+        opmerkingen: '',
+        termsAndConditions: false,
+    });
+
+    function handleChange(e) {
+        const inputFieldChange = e.target.name;
+        const newValue = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+        setFormState({
+            ...formState,
+            [inputFieldChange]: newValue,
+        });
     }
 
 
@@ -43,7 +69,6 @@ function App() {
                     <main>
                         <form onSubmit={handleSubmit}>
                             <section>
-
                                 <div className="fruit-section">
                                     <p>aardbeien
 
@@ -158,128 +183,120 @@ function App() {
                                     </p>
                                 </div>
 
-                                <button
+                                <Buttongeneral
                                     type="button"
-                                    className="reset-button"
                                     onClick={handleReset}
-                                >
-                                    reset
-                                </button>
+                                    text="reset"
+                                />
 
                             </section>
 
                             <section>
 
-                                <label htmlFor="firstname-field">Voornaam
+                                <label htmlFor="firstname-field" className="detail-field">Voornaam
                                     <input
                                         type="text"
                                         id="firstname-field"
                                         name="firstname"
-                                        value={firstnameValue}
-                                        onChange={(e) => {
-                                            setFirstnameValue(e.target.value)
-                                        }}
+                                        value={formState.firstname}
+                                        onChange={handleChange}
                                     />
                                 </label>
 
-                                <label htmlFor="lastname-field">Achternaam
+                                <label htmlFor="lastname-field" className="detail-field">Achternaam
                                     <input
                                         type="text"
                                         id="lastname-field"
                                         name="lastname"
-                                        value={lastnameValue}
-                                        onChange={(e) => {
-                                            setLastnameValue(e.target.value)
-                                        }}
+                                        value={formState.lastname}
+                                        onChange={handleChange}
                                     />
                                 </label>
 
-                                <label htmlFor="age-field">Leeftijd
+                                <label htmlFor="age-field" className="detail-field">Leeftijd
                                     <input
                                         type="text"
                                         id="age-field"
                                         name="age"
-                                        value={ageValue}
-                                        onChange={(e) => {
-                                            setAgeValue(e.target.value)
-                                        }}
+                                        value={formState.age}
+                                        onChange={handleChange}
                                     />
                                 </label>
 
-                                <label htmlFor="zipcode-field">Postcode
+                                <label htmlFor="zipcode-field" className="detail-field">Postcode
                                     <input
                                         type="text"
                                         id="zipcode-field"
-                                        name="zipcode"
-                                        value={zipCodeValue}
-                                        onChange={(e) => {
-                                            setZipCodeValue(e.target.value)
-                                        }}
+                                        name="postcode"
+                                        value={formState.postcode}
+                                        onChange={handleChange}
                                     />
                                 </label>
 
-                                <label htmlFor="deliver-frequency">Bezorgfrequentie</label>
+                                <label htmlFor="deliver-frequency" className="deliver-section">Bezorgfrequentie</label>
                                 <select
                                     id="deliver-frequency"
                                     name="bezorgfrequentie"
-                                    value={deliverValue}
-                                    onChange={(e) => setDeliverValue(e.target.value)}
+                                    value={formState.bezorgfrequentie}
+                                    onChange={handleChange}
                                 >
                                     <option value="Iedere week">Iedere week</option>
                                     <option value="Om de week">Om de week</option>
                                     <option value="iedere maand">Iedere maand</option>
                                 </select>
 
-                                <label>
+                                <label className="deliver-radiobutton">
                                     <input
                                         type="radio"
-                                        name="partOfDay"
+                                        name="dagdeelbezorgen"
                                         value="overdag"
-                                        checked={partOfDayValue === "overdag"}
-                                        onChange={(e) => togglePartOfDayValue(e.target.value)}
+                                        checked={formState.dagdeelbezorgen === "overdag"}
+                                        onChange={handleChange}
                                     />
                                     Overdag
                                 </label>
 
-                                <label>
+                                <label className="deliver-radiobutton">
                                     <input
                                         type="radio"
-                                        name="partOfDay"
-                                        value="'s Avonds"
-                                        checked={partOfDayValue === "'s Avonds"}
-                                        onChange={(e) => togglePartOfDayValue(e.target.value)}
+                                        name="dagdeelbezorgen"
+                                        value="'s avonds"
+                                        checked={formState.dagdeelbezorgen === "'s avonds"}
+                                        onChange={handleChange}
                                     />
                                     ´s Avonds
                                 </label>
 
-                                <label htmlFor="remark-field">Opmerkingen</label>
+                                <label htmlFor="remark-field" >Opmerkingen</label>
                                 <textarea
                                     id="remark-field"
                                     name="opmerkingen"
-                                    value={remarkValue}
-                                    onChange={(e) => setRemarkValue(e.target.value)}
-                                    rows="5"
-                                    cols="50"
+                                    value={formState.opmerking}
+                                    onChange={handleChange}
+                                    rows="8"
+                                    cols="80"
                                 ></textarea>
 
-                                <label htmlFor="termsAndConditions">
+                                <label htmlFor="termsAndConditions" className="terms-conditions-section">
                                     <input
                                         type="checkbox"
                                         id="termsAndConditions"
-                                        name="terms-and-conditions"
-                                        checked={termsConditionsValue}
-                                        onChange={() => toggleTermsConditionsValue(!termsConditionsValue)}
+                                        name="termsAndConditions"
+                                        checked={formState.termsAndConditions}
+                                        onChange={handleChange}
                                     />
                                     Ik ga akkoord met de algemene voorwaarden
                                 </label>
 
-                                <button type="submit">
-                                    Verzenden
-                                </button>
+                                <Buttongeneral
+                                    type="submit"
+                                    onClick={handleSubmit}
+                                    text="verzenden"
+                                />
                             </section>
                         </form>
-                </main>
-            </div>
+                    </main>
+                </div>
             </div>
 
         </>

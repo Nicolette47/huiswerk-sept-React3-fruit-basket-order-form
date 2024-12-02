@@ -14,9 +14,9 @@
 
 /*1. Global Styles*/
 * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -24,12 +24,10 @@ body {
 }
 
 
-
-
 /*Typography*/
 
 h1 {
-    margin:20px 0;
+    margin: 20px 0;
 }
 
 .fruit-section p {
@@ -97,22 +95,51 @@ button {
     font-size: 3rem;
 }
 
-.reset-button {
-    width: 800px;
-    border: 3px solid grey;
-    background-color: lightgray;
-    border-radius: 10px;
-    padding: 25px;
-    font-size: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 0;
-}
 
 
 /*FORM SECTION*/
 
-label {
-    display: block;
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+
 }
+
+label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+input {
+    flex-grow: 1;
+    height: 2.5em;
+    align-items: flex-start;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.deliver-section {
+    margin-top: 2em;
+}
+
+.deliver-radiobutton {
+    flex-grow: 1;
+    height: 2.5em;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+
+}
+
+
+.terms-conditions-section {
+    flex: 0;
+}
+
+
